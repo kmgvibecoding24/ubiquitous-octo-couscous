@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Питание на неделю</title>
+<meta name="description" content="Недельный план питания для набора мышечной массы: меню без молочных продуктов, БЖУ, рецепты и список покупок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f8f5;
+  --surface: #ffffff;
+  --surface-2: #eef3ec;
+  --text: #1b2620;
+  --muted: #56645b;
+  --border: #dde5dc;
+  --accent: #23874a;
+  --accent-strong: #1a6b3a;
+  --accent-soft: #e1f2e6;
+  --warm: #c25e12;
+  --warm-soft: #fdeedd;
+  --protein: #2563c9;
+  --protein-soft: #e3ecfb;
+  --fat: #a87a00;
+  --fat-bar: #e0b021;
+  --fat-soft: #fbf3d6;
+  --carbs: #23874a;
+  --carbs-bar: #3fae67;
+  --carbs-soft: #e1f2e6;
+  --shadow: 0 1px 2px rgba(20, 40, 25, .05), 0 6px 20px rgba(20, 40, 25, .07);
+  --radius: 18px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613;
+    --surface: #19201b;
+    --surface-2: #212a24;
+    --text: #e6ede8;
+    --muted: #a3b1a8;
+    --border: #2d3830;
+    --accent: #5cc983;
+    --accent-strong: #7bd79b;
+    --accent-soft: #1e3427;
+    --warm: #f29a52;
+    --warm-soft: #3a2817;
+    --protein: #7aa8f5;
+    --protein-soft: #1d2a42;
+    --fat: #e8c252;
+    --fat-bar: #d9ae2a;
+    --fat-soft: #3a3118;
+    --carbs: #5cc983;
+    --carbs-bar: #46b26d;
+    --carbs-soft: #1e3427;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613; --surface: #19201b; --surface-2: #212a24; --text: #e6ede8; --muted: #a3b1a8;
+  --border: #2d3830; --accent: #5cc983; --accent-strong: #7bd79b; --accent-soft: #1e3427;
+  --warm: #f29a52; --warm-soft: #3a2817; --protein: #7aa8f5; --protein-soft: #1d2a42;
+  --fat: #e8c252; --fat-bar: #d9ae2a; --fat-soft: #3a3118; --carbs: #5cc983; --carbs-bar: #46b26d;
+  --carbs-soft: #1e3427; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { line-height: 1.2; margin: 0; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+section { padding: 40px 0; }
+.section-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -.01em; margin-bottom: 6px; }
+.section-sub { color: var(--muted); margin: 0 0 24px; }
+
+/* Hero */
+.hero { padding: 48px 0 32px; background: linear-gradient(180deg, var(--accent-soft), var(--bg)); }
+.eyebrow { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -.02em; }
+.hero p.lead { color: var(--muted); font-size: 1.1rem; margin: 12px 0 28px; max-width: 620px; }
+.norms { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 720px) { .norms { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+.norm { background: var(--surface); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); }
+.norm .label { font-size: .85rem; color: var(--muted); font-weight: 600; }
+.norm .value { font-size: clamp(1.6rem, 4.5vw, 2.4rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-top: 4px; }
+.norm .value small { font-size: .9rem; font-weight: 600; color: var(--muted); }
+.norm.kcal { grid-column: 1 / -1; }
+@media (min-width: 720px) { .norm.kcal { grid-column: auto; } }
+.norm.kcal .value { color: var(--accent-strong); }
+.norm.p .value { color: var(--protein); }
+.norm.f .value { color: var(--fat); }
+.norm.c .value { color: var(--carbs); }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.nav .wrap { display: flex; align-items: center; gap: 8px; height: 56px; overflow-x: auto; scrollbar-width: none; }
+.nav .wrap::-webkit-scrollbar { display: none; }
+.nav .brand { font-weight: 800; margin-right: auto; white-space: nowrap; display: none; }
+@media (min-width: 640px) { .nav .brand { display: block; } }
+.nav a { white-space: nowrap; text-decoration: none; color: var(--text); font-weight: 600; font-size: .95rem; padding: 8px 14px; border-radius: 999px; }
+.nav a:hover { background: var(--surface-2); }
+
+/* Profile */
+.profile { display: grid; gap: 16px; }
+@media (min-width: 860px) { .profile { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+.params { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; }
+@media (min-width: 480px) { .params { grid-template-columns: repeat(3, 1fr); } }
+.params div { background: var(--surface-2); border-radius: 12px; padding: 10px 12px; }
+.params dt { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.params dd { margin: 2px 0 0; font-weight: 700; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip { background: var(--surface-2); border-radius: 999px; padding: 5px 12px; font-size: .88rem; font-weight: 600; }
+.chip.no { background: var(--warm-soft); color: var(--warm); }
+.calc { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.calc li { display: flex; gap: 12px; align-items: flex-start; }
+.calc .step { flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-strong); font-weight: 800; display: grid; place-items: center; font-size: .9rem; }
+.calc b { display: block; }
+.calc span.f { color: var(--muted); font-size: .9rem; }
+.note { margin-top: 16px; font-size: .88rem; color: var(--muted); background: var(--surface-2); border-radius: 12px; padding: 10px 14px; }
+
+/* Tabs */
+.tabs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 10px; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.tab { flex: 0 0 auto; scroll-snap-align: center; min-width: 64px; border: 1.5px solid var(--border); background: var(--surface); border-radius: 14px; padding: 10px 14px; cursor: pointer; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 2px; position: relative; }
+.tab .sub { font-size: .72rem; font-weight: 600; color: var(--muted); }
+.tab.training .sub { color: var(--warm); }
+.tab:hover { border-color: var(--accent); }
+.tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tab[aria-selected="true"] .sub { color: rgba(255,255,255,.9); }
+:root[data-theme="dark"] .tab[aria-selected="true"], :root[data-theme="dark"] .tab[aria-selected="true"] .sub { color: #0d1a12; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tab[aria-selected="true"], :root:not([data-theme="light"]) .tab[aria-selected="true"] .sub { color: #0d1a12; } }
+.tab .today-dot { position: absolute; top: 6px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--warm); }
+
+.day-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 18px 0 16px; }
+.day-head h3 { font-size: 1.4rem; font-weight: 800; }
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+.badge.train { background: var(--warm-soft); color: var(--warm); }
+.badge.rest { background: var(--surface-2); color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--border); background: var(--surface); border-radius: 12px; padding: 8px 14px; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .btn.primary { color: #0d1a12; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #0d1a12; } }
+
+/* Meals */
+.meals { display: grid; gap: 16px; }
+@media (min-width: 900px) { .meals { grid-template-columns: repeat(3, 1fr); } }
+.meal { display: flex; flex-direction: column; }
+.meal-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.meal-icon { font-size: 1.5rem; width: 44px; height: 44px; border-radius: 12px; background: var(--surface-2); display: grid; place-items: center; }
+.meal-type { font-weight: 800; }
+.meal-time { font-size: .82rem; color: var(--muted); font-weight: 600; }
+.meal h4 { font-size: 1.08rem; font-weight: 700; margin: 4px 0 12px; }
+.macros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+.macro { border-radius: 10px; padding: 6px 4px; text-align: center; }
+.macro b { display: block; font-size: 1.05rem; font-weight: 800; }
+.macro span { font-size: .72rem; font-weight: 600; }
+.macro.k { background: var(--surface-2); }
+.macro.k span { color: var(--muted); }
+.macro.p { background: var(--protein-soft); color: var(--protein); outline: 2px solid var(--protein); outline-offset: -2px; }
+.macro.f { background: var(--fat-soft); color: var(--fat); }
+.macro.c { background: var(--carbs-soft); color: var(--carbs); }
+.ingredients { list-style: none; padding: 0; margin: 0 0 14px; font-size: .93rem; }
+.ingredients li { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+.ingredients li:last-child { border-bottom: 0; }
+.ingredients .q { color: var(--muted); font-weight: 600; white-space: nowrap; }
+.recipe-btn { margin-top: auto; width: 100%; justify-content: space-between; }
+.recipe-btn .chev { transition: transform .2s; }
+.recipe-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.recipe { margin-top: 12px; background: var(--surface-2); border-radius: 12px; padding: 12px 14px; font-size: .92rem; }
+.recipe[hidden] { display: none; }
+.recipe .ct { font-weight: 700; color: var(--accent-strong); margin-bottom: 6px; }
+.recipe ol { margin: 0; padding-left: 20px; }
+.recipe li { margin: 4px 0; }
+
+/* Totals */
+.totals { margin-top: 16px; }
+.totals-grid { display: grid; gap: 14px; }
+@media (min-width: 720px) { .totals-grid { grid-template-columns: repeat(4, 1fr); } }
+.bar-row .top { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: .92rem; }
+.bar-row .top .v { font-size: 1.15rem; font-weight: 800; }
+.bar-row .range { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.bar { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin: 6px 0 4px; }
+.bar i { display: block; height: 100%; border-radius: 999px; }
+.bar-row.k i { background: var(--accent); }
+.bar-row.p i { background: var(--protein); }
+.bar-row.f i { background: var(--fat-bar); }
+.bar-row.c i { background: var(--carbs-bar); }
+.bar-row.p .v { color: var(--protein); }
+
+/* Week summary */
+.week-table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+.week-table th, .week-table td { padding: 9px 8px; text-align: right; border-bottom: 1px solid var(--border); }
+.week-table th:first-child, .week-table td:first-child { text-align: left; }
+.week-table thead th { font-size: .78rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.week-table tfoot td { font-weight: 800; border-bottom: 0; }
+.week-table tr.current td { background: var(--accent-soft); }
+.week-table td.p { color: var(--protein); font-weight: 700; }
+.table-scroll { overflow-x: auto; }
+details.week { margin-top: 16px; }
+details.week summary { cursor: pointer; font-weight: 700; padding: 4px 0; }
+
+/* Shopping */
+.shop-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; }
+.progress-text { font-weight: 700; color: var(--muted); margin-left: auto; font-size: .92rem; }
+.shop-grid { columns: 1; column-gap: 16px; }
+@media (min-width: 680px) { .shop-grid { columns: 2; } }
+@media (min-width: 1000px) { .shop-grid { columns: 3; } }
+.shop-cat { break-inside: avoid; margin-bottom: 16px; }
+.shop-cat h3 { display: flex; align-items: center; gap: 8px; }
+.shop-cat ul { list-style: none; margin: 0; padding: 0; }
+.shop-cat li label { display: flex; align-items: center; gap: 10px; padding: 8px 4px; border-bottom: 1px solid var(--border); cursor: pointer; }
+.shop-cat li:last-child label { border-bottom: 0; }
+.shop-cat input { width: 20px; height: 20px; accent-color: var(--accent); flex: 0 0 auto; margin: 0; }
+.shop-cat .n { flex: 1; }
+.shop-cat .qty { color: var(--muted); font-weight: 600; font-size: .9rem; text-align: right; }
+.shop-cat input:checked ~ .n { text-decoration: line-through; color: var(--muted); }
+
+/* Principles */
+.principles { display: grid; gap: 14px; counter-reset: pr; }
+@media (min-width: 720px) { .principles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .principles { grid-template-columns: repeat(3, 1fr); } }
+.principle { display: flex; gap: 14px; }
+.principle .ic { font-size: 1.6rem; flex: 0 0 auto; }
+.principle h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.principle p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+footer { padding: 32px 0 48px; border-top: 1px solid var(--border); color: var(--muted); font-size: .88rem; }
+footer p { max-width: 760px; margin: 0 0 10px; }
+
+/* Print */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --surface-2: #f2f2f2; --text: #000; --muted: #444; --border: #bbb; --shadow: none; }
+  body { background: #fff; font-size: 11pt; }
+  .nav, .no-print, .hero, footer { display: none !important; }
+  section { padding: 0; }
+  .card { box-shadow: none; border: 1px solid #ccc; padding: 10px; }
+  body.print-shop main > section:not(#shopping) { display: none !important; }
+  body.print-shop .shop-grid { columns: 2; }
+  body.print-shop .shop-cat li label { padding: 3px 2px; }
+  body.print-day main > section:not(#menu) { display: none !important; }
+  body.print-day .tabs, body.print-day .recipe-btn, body.print-day details.week { display: none !important; }
+  body.print-day .recipe[hidden] { display: block !important; }
+  body.print-day .meals { grid-template-columns: 1fr; }
+  body.print-day .meal { break-inside: avoid; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Цель — набор мышечной массы</span>
+    <h1>Питание на неделю</h1>
+    <p class="lead">Меню на 7 дней из простых продуктов без молочного: 3 приёма пищи в день, граммовки, КБЖУ и короткие рецепты.</p>
+    <div class="norms" aria-label="Суточная норма">
+      <div class="norm kcal"><div class="label">Калории в день</div><div class="value">2 100–2 200 <small>ккал</small></div></div>
+      <div class="norm p"><div class="label">Белки</div><div class="value">110–135 <small>г</small></div></div>
+      <div class="norm f"><div class="label">Жиры</div><div class="value">55–70 <small>г</small></div></div>
+      <div class="norm c"><div class="label">Углеводы</div><div class="value">230–270 <small>г</small></div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Разделы страницы">
+  <div class="wrap">
+    <span class="brand">🥗 Питание на неделю</span>
+    <a href="#menu">Меню</a>
+    <a href="#shopping">Список покупок</a>
+    <a href="#principles">Принципы</a>
+    <a href="#profile">Профиль</a>
+  </div>
+</nav>
+
+<main>
+  <section id="profile">
+    <div class="wrap">
+      <h2 class="section-title">Мой профиль и нормы</h2>
+      <p class="section-sub">Из чего складывается суточная норма.</p>
+      <div class="profile">
+        <div class="card">
+          <h3>Параметры</h3>
+          <dl class="params">
+            <div><dt>Возраст</dt><dd>43 года</dd></div>
+            <div><dt>Рост</dt><dd>163 см</dd></div>
+            <div><dt>Вес</dt><dd>62 кг</dd></div>
+            <div><dt>ИМТ</dt><dd>23,3 · норма</dd></div>
+            <div><dt>Зал</dt><dd>3 раза в неделю</dd></div>
+            <div><dt>Шаги</dt><dd>~15 000 в день</dd></div>
+          </dl>
+          <div class="chips">
+            <span class="chip">🍽️ 3 приёма пищи, без перекусов</span>
+            <span class="chip">🛒 Простые продукты</span>
+            <span class="chip no">🚫 Без молочных продуктов</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Расчёт нормы</h3>
+          <ol class="calc">
+            <li><span class="step">1</span><div><b>Базовый обмен ≈ 1 263 ккал</b><span class="f">Миффлин — Сан Жеор: 10×62 + 6,25×163 − 5×43 − 161</span></div></li>
+            <li><span class="step">2</span><div><b>Расход за день ≈ 2 020 ккал</b><span class="f">× 1,6 — тренировки и 15 000 шагов</span></div></li>
+            <li><span class="step">3</span><div><b>Для роста мышц 2 100–2 200 ккал</b><span class="f">+5–8 % к расходу — мышцы растут, жира почти не прибавляется</span></div></li>
+            <li><span class="step">4</span><div><b>Белок 1,8–2,2 г на кг веса</b><span class="f">≈ 35–50 г белка в каждом приёме пищи</span></div></li>
+          </ol>
+          <p class="note">Значения ориентировочные (±10 %). Крупы, макароны и бобовые взвешиваются в <b>сухом</b> виде, мясо и рыба — в <b>сыром</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2 class="section-title">Меню на неделю</h2>
+      <p class="section-sub">Открыт сегодняшний день. 🏋️ — дни тренировок: в них больше углеводов.</p>
+
+      <div class="tabs no-print" role="tablist" aria-label="Дни недели" id="tabs"></div>
+
+      <div id="day-panel" role="tabpanel" tabindex="0"></div>
+
+      <details class="week card no-print">
+        <summary>Сводка по неделе</summary>
+        <div class="table-scroll" id="week-summary"></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="wrap">
+      <h2 class="section-title">Список покупок на неделю</h2>
+      <p class="section-sub">Отмечайте купленное — отметки сохраняются на этом устройстве.</p>
+      <div class="shop-actions no-print">
+        <button class="btn primary" type="button" id="print-shop">🖨️ Распечатать список</button>
+        <button class="btn" type="button" id="reset-shop">↺ Сбросить отметки</button>
+        <span class="progress-text" id="shop-progress" aria-live="polite"></span>
+      </div>
+      <div class="shop-grid" id="shop-grid"></div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="wrap">
+      <h2 class="section-title">Принципы питания</h2>
+      <p class="section-sub">Семь правил, на которых держится план.</p>
+      <div class="principles" id="principles-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>План питания носит информационный характер и рассчитан по общим формулам. Перед изменением питания, особенно при хронических заболеваниях, проконсультируйтесь с врачом или диетологом. Без молочных продуктов важно следить за уровнем кальция и витамина D — их можно проверить анализом.</p>
+    <p>Обновлено: 07.10.2026 · версия 1.0</p>
+  </div>
+</footer>
+
+<script>
+const plan = {
+  targets: { kcal: 2150, protein: 125, fat: 65, carbs: 250 },
+  ranges: { kcal: [2100, 2200], protein: [110, 135], fat: [55, 70], carbs: [230, 270] },
+  trainingDays: ["mon", "wed", "fri"],
+  mealMeta: {
+    breakfast: { label: "Завтрак", time: "7:30–8:30", icon: "🌅" },
+    lunch: { label: "Обед", time: "13:00–14:00", icon: "☀️" },
+    dinner: { label: "Ужин", time: "18:30–19:30", icon: "🌙" }
+  },
+  days: [
+    { id: "mon", short: "Пн", title: "Понедельник", meals: [
+      { type: "breakfast", name: "Овсянка с бананом и арахисовой пастой + яйца",
+        ingredients: [["Овсяные хлопья", "90 г"], ["Соевое молоко", "200 мл"], ["Банан", "120 г"], ["Арахисовая паста", "15 г"], ["Яйца", "2 шт"]],
+        kcal: 755, protein: 36, fat: 28, carbs: 87, cookTime: 10,
+        steps: ["Залить хлопья соевым молоком и 100 мл воды.", "Варить 5–7 минут.", "Добавить нарезанный банан и арахисовую пасту.", "Яйца отварить 9 минут."] },
+      { type: "lunch", name: "Гречка с курицей и овощами",
+        ingredients: [["Гречка", "90 г"], ["Куриное филе", "180 г"], ["Овощи (морковь, кабачок, перец)", "250 г"], ["Оливковое масло", "10 г"], ["Хлеб цельнозерновой", "30 г"]],
+        kcal: 710, protein: 58, fat: 17, carbs: 81, cookTime: 25,
+        steps: ["Отварить гречку.", "Курицу нарезать кубиками, обжарить на масле 7–8 минут.", "Добавить нарезанные овощи, тушить под крышкой 10 минут.", "Смешать с гречкой."] },
+      { type: "dinner", name: "Лосось с рисом и овощами",
+        ingredients: [["Рис", "80 г"], ["Лосось", "150 г"], ["Брокколи", "200 г"], ["Яблоко", "150 г"]],
+        kcal: 695, protein: 37, fat: 20, carbs: 89, cookTime: 25,
+        steps: ["Отварить рис.", "Лосось посолить, запечь в фольге при 200 °C 15 минут.", "Брокколи приготовить на пару или отварить 5 минут."] }
+    ]},
+    { id: "tue", short: "Вт", title: "Вторник", meals: [
+      { type: "breakfast", name: "Омлет с овощами и тостами",
+        ingredients: [["Яйца", "3 шт"], ["Томаты и перец", "150 г"], ["Хлеб цельнозерновой", "60 г"], ["Авокадо", "50 г"], ["Банан", "120 г"], ["Соевое молоко (стакан)", "250 мл"]],
+        kcal: 710, protein: 38, fat: 30, carbs: 69, cookTime: 10,
+        steps: ["Взбить яйца со щепоткой соли.", "Обжарить овощи 2 минуты на сухой антипригарной сковороде.", "Залить яйцами, готовить под крышкой 5 минут.", "Подать с тостами и авокадо."] },
+      { type: "lunch", name: "Макароны с тушёной индейкой",
+        ingredients: [["Макароны из твёрдых сортов", "100 г"], ["Филе индейки", "180 г"], ["Томаты в собственном соку", "200 г"], ["Оливковое масло", "10 г"], ["Хлеб", "30 г"]],
+        kcal: 770, protein: 60, fat: 15, carbs: 94, cookTime: 25,
+        steps: ["Отварить макароны.", "Индейку нарезать, обжарить на масле 7 минут.", "Добавить томаты, тушить 10 минут.", "Смешать с макаронами."] },
+      { type: "dinner", name: "Тушёная говядина с картофелем и салатом",
+        ingredients: [["Говядина постная", "150 г"], ["Картофель", "400 г"], ["Салат (огурцы, томаты, капуста)", "200 г"], ["Оливковое масло", "10 г"]],
+        kcal: 685, protein: 40, fat: 24, carbs: 75, cookTime: 80, note: "можно приготовить заранее",
+        steps: ["Говядину нарезать кубиками, обжарить 5 минут.", "Залить водой, тушить 50 минут.", "Добавить картофель кусками, тушить ещё 25 минут.", "Салат заправить маслом."] }
+    ]},
+    { id: "wed", short: "Ср", title: "Среда", meals: [
+      { type: "breakfast", name: "Овсянка с ягодами + яйца",
+        ingredients: [["Овсяные хлопья", "90 г"], ["Соевое молоко", "250 мл"], ["Замороженные ягоды", "100 г"], ["Мёд", "15 г"], ["Арахисовая паста", "20 г"], ["Яйца", "2 шт"]],
+        kcal: 785, protein: 37, fat: 30, carbs: 89, cookTime: 10,
+        steps: ["Сварить хлопья на соевом молоке.", "Добавить размороженные ягоды, мёд и пасту.", "Яйца отварить 9 минут."] },
+      { type: "lunch", name: "Простой плов с курицей",
+        ingredients: [["Рис", "90 г"], ["Куриное бедро без кожи", "180 г"], ["Морковь и лук", "150 г"], ["Растительное масло", "10 г"]],
+        kcal: 675, protein: 43, fat: 18, carbs: 81, cookTime: 40,
+        steps: ["Курицу нарезать, обжарить на масле 5 минут.", "Добавить нарезанные лук и морковь, жарить 5 минут.", "Всыпать промытый рис, залить водой на 1,5 см выше, посолить, добавить зиру.", "Томить под крышкой на слабом огне 25 минут."] },
+      { type: "dinner", name: "Запечённая треска с булгуром",
+        ingredients: [["Треска", "200 г"], ["Булгур", "80 г"], ["Овощной салат", "200 г"], ["Оливковое масло", "10 г"], ["Банан", "120 г"]],
+        kcal: 670, protein: 47, fat: 13, carbs: 96, cookTime: 25,
+        steps: ["Булгур залить кипятком 1:2, оставить под крышкой на 15 минут.", "Треску посолить, поперчить, запечь при 190 °C 15–18 минут.", "Банан — после ужина или после тренировки."] }
+    ]},
+    { id: "thu", short: "Чт", title: "Четверг", meals: [
+      { type: "breakfast", name: "Бутерброды с тунцом и авокадо",
+        ingredients: [["Хлеб цельнозерновой", "90 г"], ["Тунец в собственном соку", "120 г"], ["Авокадо", "70 г"], ["Огурец и томат", "150 г"], ["Банан", "120 г"], ["Грецкие орехи", "20 г"], ["Яблоко", "150 г"]],
+        kcal: 795, protein: 42, fat: 27, carbs: 97, cookTime: 5,
+        steps: ["Тунец размять вилкой.", "Авокадо нарезать или размять.", "Выложить на хлеб с овощами."] },
+      { type: "lunch", name: "Чечевичный суп с курицей",
+        ingredients: [["Красная чечевица", "80 г"], ["Картофель", "150 г"], ["Морковь и лук", "100 г"], ["Куриное филе", "120 г"], ["Растительное масло", "10 г"], ["Хлеб", "30 г"]],
+        kcal: 715, protein: 53, fat: 14, carbs: 89, cookTime: 35,
+        steps: ["Обжарить лук и морковь на масле 4 минуты.", "Добавить нарезанную курицу, картофель, промытую чечевицу и 1,2 л воды.", "Варить 25 минут, посолить, по желанию пробить блендером."] },
+      { type: "dinner", name: "Котлеты из индейки с гречкой",
+        ingredients: [["Фарш индейки", "180 г"], ["Гречка", "80 г"], ["Овощной салат", "200 г"], ["Оливковое масло", "5 г"]],
+        kcal: 635, protein: 46, fat: 24, carbs: 60, cookTime: 30,
+        steps: ["Фарш посолить, добавить мелко нарезанный лук, сформировать котлеты.", "Запечь при 200 °C 20 минут.", "Отварить гречку."] }
+    ]},
+    { id: "fri", short: "Пт", title: "Пятница", meals: [
+      { type: "breakfast", name: "Банановые панкейки",
+        ingredients: [["Овсяные хлопья (смолоть в муку)", "60 г"], ["Яйца", "2 шт"], ["Банан", "120 г"], ["Соевое молоко", "200 мл"], ["Ягоды", "100 г"], ["Мёд", "15 г"], ["Грецкие орехи", "20 г"]],
+        kcal: 775, protein: 31, fat: 32, carbs: 91, cookTime: 20,
+        steps: ["Смолоть хлопья в блендере.", "Размять банан, смешать с яйцами, молоком и мукой.", "Жарить на сухой антипригарной сковороде по 2 минуты с каждой стороны.", "Подать с ягодами, мёдом и орехами."] },
+      { type: "lunch", name: "Рис с курицей и овощами в соевом соусе",
+        ingredients: [["Рис", "90 г"], ["Куриное филе", "180 г"], ["Замороженная овощная смесь", "250 г"], ["Растительное масло", "10 г"], ["Соевый соус", "15 мл"]],
+        kcal: 665, protein: 50, fat: 13, carbs: 82, cookTime: 25,
+        steps: ["Отварить рис.", "Курицу нарезать полосками, обжарить 6 минут.", "Добавить овощную смесь, жарить 6 минут, влить соевый соус.", "Смешать с рисом."] },
+      { type: "dinner", name: "Запечённая скумбрия с картофелем",
+        ingredients: [["Скумбрия", "150 г"], ["Картофель", "350 г"], ["Квашеная капуста", "150 г"], ["Хлеб", "30 г"]],
+        kcal: 670, protein: 39, fat: 21, carbs: 78, cookTime: 40,
+        steps: ["Картофель нарезать дольками, выложить на противень.", "Сверху положить скумбрию, посолить.", "Запекать при 200 °C 30–35 минут."] }
+    ]},
+    { id: "sat", short: "Сб", title: "Суббота", meals: [
+      { type: "breakfast", name: "Шакшука",
+        ingredients: [["Яйца", "3 шт"], ["Томаты и перец", "250 г"], ["Оливковое масло", "5 г"], ["Хлеб", "60 г"], ["Банан", "120 г"], ["Соевое молоко", "250 мл"]],
+        kcal: 700, protein: 37, fat: 29, carbs: 70, cookTime: 20,
+        steps: ["Обжарить нарезанные перец и томаты на масле 7 минут.", "Сделать лунки, разбить яйца.", "Готовить под крышкой 5–6 минут."] },
+      { type: "lunch", name: "Паста болоньезе",
+        ingredients: [["Макароны", "100 г"], ["Говяжий фарш постный", "150 г"], ["Томаты в собственном соку", "150 г"], ["Лук", "½ шт"]],
+        kcal: 665, protein: 44, fat: 17, carbs: 80, cookTime: 30,
+        steps: ["Обжарить лук и фарш 8 минут.", "Добавить томаты, тушить 15 минут.", "Смешать с отваренными макаронами."] },
+      { type: "dinner", name: "Тофу с курицей и рисом",
+        ingredients: [["Тофу", "150 г"], ["Куриное филе", "120 г"], ["Рис", "80 г"], ["Овощи (брокколи, морковь, перец)", "250 г"], ["Растительное масло", "10 г"], ["Кунжут", "10 г"], ["Соевый соус", "по вкусу"]],
+        kcal: 730, protein: 49, fat: 24, carbs: 78, cookTime: 25,
+        steps: ["Отварить рис.", "Тофу нарезать кубиками, обжарить до корочки.", "Отдельно обжарить курицу и овощи, соединить с тофу, добавить соевый соус.", "Посыпать кунжутом."] }
+    ]},
+    { id: "sun", short: "Вс", title: "Воскресенье", meals: [
+      { type: "breakfast", name: "Овсянка с запечённым яблоком + яйца",
+        ingredients: [["Овсяные хлопья", "90 г"], ["Яйца", "2 шт"], ["Яблоко", "150 г"], ["Грецкие орехи", "20 г"], ["Мёд", "10 г"], ["Корица", "по вкусу"]],
+        kcal: 705, protein: 28, fat: 29, carbs: 82, cookTime: 15,
+        steps: ["Яблоко нарезать, посыпать корицей, запечь в микроволновке 3 минуты.", "Сварить овсянку на воде.", "Добавить яблоко, орехи, мёд.", "Яйца отварить 9 минут."] },
+      { type: "lunch", name: "Запечённая индейка с картофелем",
+        ingredients: [["Филе индейки", "180 г"], ["Картофель", "350 г"], ["Салат из капусты", "200 г"], ["Оливковое масло", "10 г"], ["Хлеб", "30 г"]],
+        kcal: 690, protein: 56, fat: 14, carbs: 80, cookTime: 45,
+        steps: ["Индейку натереть солью и паприкой.", "Выложить с дольками картофеля на противень.", "Запекать при 190 °C 35–40 минут."] },
+      { type: "dinner", name: "Салат с фасолью, тунцом и булгуром",
+        ingredients: [["Фасоль консервированная", "200 г"], ["Тунец в собственном соку", "120 г"], ["Булгур", "70 г"], ["Овощи", "200 г"], ["Оливковое масло", "10 г"]],
+        kcal: 675, protein: 50, fat: 13, carbs: 92, cookTime: 20,
+        steps: ["Запарить булгур кипятком на 15 минут.", "Промыть фасоль, нарезать овощи.", "Смешать с тунцом, заправить маслом и лимонным соком."] }
+    ]}
+  ],
+  shoppingList: [
+    { category: "Мясо и птица", icon: "🍗", items: [
+      ["chicken", "Куриное филе", "600 г"], ["chicken-thigh", "Куриное бедро без кожи", "180 г"], ["turkey", "Филе индейки", "360 г"],
+      ["turkey-mince", "Фарш индейки", "180 г"], ["beef", "Говядина постная", "150 г"], ["beef-mince", "Говяжий фарш постный", "150 г"] ] },
+    { category: "Рыба", icon: "🐟", items: [
+      ["salmon", "Лосось", "150 г"], ["cod", "Треска (или минтай)", "200 г"], ["mackerel", "Скумбрия", "150 г"], ["tuna", "Тунец в собственном соку", "2 банки"] ] },
+    { category: "Яйца и растительный белок", icon: "🥚", items: [
+      ["eggs", "Яйца", "15 шт"], ["tofu", "Тофу", "150 г"], ["beans", "Фасоль консервированная", "1 банка"], ["lentils", "Красная чечевица", "80 г"] ] },
+    { category: "Крупы, макароны, хлеб", icon: "🌾", items: [
+      ["oats", "Овсяные хлопья (не быстрого приготовления)", "400 г"], ["rice", "Рис", "350 г"], ["buckwheat", "Гречка", "200 г"],
+      ["bulgur", "Булгур", "150 г"], ["pasta", "Макароны из твёрдых сортов", "200 г"], ["bread", "Хлеб цельнозерновой", "1 буханка (~400 г)"] ] },
+    { category: "Овощи", icon: "🥦", items: [
+      ["potato", "Картофель", "1,3 кг"], ["broccoli", "Брокколи (свежая или замороженная)", "450 г"], ["carrot", "Морковь", "4 шт"],
+      ["onion", "Лук репчатый", "4 шт"], ["tomato", "Помидоры", "6 шт"], ["cucumber", "Огурцы", "4 шт"], ["pepper", "Болгарский перец", "3 шт"],
+      ["zucchini", "Кабачок", "1 шт"], ["cabbage", "Капуста белокочанная", "½ кочана"], ["sauerkraut", "Квашеная капуста", "150 г"],
+      ["veg-mix", "Замороженная овощная смесь", "250 г"], ["canned-tomato", "Томаты в собственном соку", "1 банка (400 г)"] ] },
+    { category: "Фрукты и ягоды", icon: "🍌", items: [
+      ["banana", "Бананы", "6 шт"], ["apple", "Яблоки", "3 шт"], ["avocado", "Авокадо", "1 шт"], ["berries", "Замороженные ягоды", "200 г"], ["lemon", "Лимон", "1 шт"] ] },
+    { category: "Прочее", icon: "🫙", items: [
+      ["soy-milk", "Соевое молоко, обогащённое кальцием", "1,5 л"], ["peanut", "Арахисовая паста без сахара", "1 банка"],
+      ["walnuts", "Грецкие орехи", "60 г"], ["honey", "Мёд", "небольшая банка"], ["sesame", "Кунжут", "10 г"],
+      ["pantry", "Оливковое масло, соевый соус, соль, перец, паприка, зира, корица", "по наличию"] ] }
+  ],
+  principles: [
+    ["💪", "Белок в каждом приёме пищи", "35–50 г за раз — основа для роста мышц."],
+    ["🏋️", "Углеводы — вокруг тренировок", "В дни зала не пропускайте приём пищи до и после тренировки."],
+    ["🦴", "Кальций без молочных продуктов", "Соевое молоко с кальцием, тофу, рыба, брокколи, капуста, кунжут. После 40 лет это особенно важно для костей."],
+    ["💧", "Вода 2–2,5 л в день", "При 15 000 шагов и тренировках — больше."],
+    ["😴", "Сон 7–8 часов", "Мышцы восстанавливаются и растут во время отдыха."],
+    ["⚖️", "Контроль прогресса", "Взвешивание раз в неделю утром натощак; оптимально +0,2–0,5 кг в месяц. Если вес не растёт 3 недели — добавьте 100–150 ккал (например, +30 г крупы в обед)."],
+    ["🍱", "Готовьте заранее", "Гречку, рис и запечённое мясо можно приготовить на 2 дня вперёд."]
+  ]
+};
+
+const STORAGE_KEY = "nutrition-week-shopping-v1";
+const fmt = n => n.toLocaleString("ru-RU");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const sumDay = day => day.meals.reduce((t, m) => ({
+  kcal: t.kcal + m.kcal, protein: t.protein + m.protein, fat: t.fat + m.fat, carbs: t.carbs + m.carbs
+}), { kcal: 0, protein: 0, fat: 0, carbs: 0 });
+const isTraining = id => plan.trainingDays.includes(id);
+const cookLabel = min => min >= 60 ? `${Math.floor(min / 60)} ч ${min % 60 ? (min % 60) + " мин" : ""}`.trim() : `${min} мин`;
+
+// JS getDay(): 0 = вс … 6 = сб
+const todayIndex = (new Date().getDay() + 6) % 7;
+let activeIndex = todayIndex;
+
+/* ---------- Tabs ---------- */
+const tabsEl = document.getElementById("tabs");
+const panelEl = document.getElementById("day-panel");
+
+function renderTabs() {
+  tabsEl.innerHTML = plan.days.map((d, i) => {
+    const tr = isTraining(d.id);
+    const sel = i === activeIndex;
+    return `<button class="tab${tr ? " training" : ""}" role="tab" id="tab-${d.id}"
+      aria-selected="${sel}" aria-controls="day-panel" tabindex="${sel ? 0 : -1}"
+      ${tr ? 'title="День тренировки"' : ""} data-i="${i}">
+      ${i === todayIndex ? '<span class="today-dot" aria-hidden="true"></span>' : ""}
+      <span>${d.short}${tr ? " 🏋️" : ""}</span>
+      <span class="sub">${i === todayIndex ? "сегодня" : tr ? "тренировка" : "отдых"}</span>
+      ${tr ? '<span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">, день тренировки</span>' : ""}
+    </button>`;
+  }).join("");
+}
+
+function selectDay(i, focus) {
+  activeIndex = i;
+  renderTabs();
+  renderDay();
+  renderWeek();
+  const btn = tabsEl.querySelector(`[data-i="${i}"]`);
+  btn.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  if (focus) btn.focus();
+}
+
+tabsEl.addEventListener("click", e => {
+  const b = e.target.closest(".tab");
+  if (b) selectDay(+b.dataset.i);
+});
+tabsEl.addEventListener("keydown", e => {
+  const n = plan.days.length;
+  let i = null;
+  if (e.key === "ArrowRight") i = (activeIndex + 1) % n;
+  else if (e.key === "ArrowLeft") i = (activeIndex - 1 + n) % n;
+  else if (e.key === "Home") i = 0;
+  else if (e.key === "End") i = n - 1;
+  if (i !== null) { e.preventDefault(); selectDay(i, true); }
+});
+
+/* ---------- Day ---------- */
+function bar(cls, label, value, unit, key) {
+  const target = plan.targets[key];
+  const [lo, hi] = plan.ranges[key];
+  const pct = Math.round(value / target * 100);
+  const width = Math.min(pct, 100);
+  return `<div class="bar-row ${cls}">
+    <div class="top"><span>${label}</span><span class="v">${fmt(value)} ${unit}</span></div>
+    <div class="bar" role="progressbar" aria-label="${label}: ${pct}% от нормы" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${width}"><i style="width:${width}%"></i></div>
+    <div class="range">${pct}% от ${fmt(target)} · норма ${fmt(lo)}–${fmt(hi)}</div>
+  </div>`;
+}
+
+function renderDay() {
+  const d = plan.days[activeIndex];
+  const tr = isTraining(d.id);
+  const t = sumDay(d);
+  panelEl.setAttribute("aria-labelledby", `tab-${d.id}`);
+  panelEl.innerHTML = `
+    <div class="day-head">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+        <h3>${d.title}</h3>
+        ${tr ? '<span class="badge train">🏋️ День тренировки</span>' : '<span class="badge rest">🌿 День отдыха</span>'}
+      </div>
+      <button class="btn no-print" type="button" id="print-day">🖨️ Распечатать меню дня</button>
+    </div>
+    <div class="meals">
+      ${d.meals.map((m, mi) => {
+        const meta = plan.mealMeta[m.type];
+        const rid = `recipe-${d.id}-${mi}`;
+        return `<article class="card meal">
+          <div class="meal-top">
+            <span class="meal-icon" aria-hidden="true">${meta.icon}</span>
+            <div><div class="meal-type">${meta.label}</div><div class="meal-time">${meta.time}</div></div>
+          </div>
+          <h4>${esc(m.name)}</h4>
+          <div class="macros">
+            <div class="macro k"><b>${m.kcal}</b><span>ккал</span></div>
+            <div class="macro p" title="Белки — приоритет"><b>${m.protein}</b><span>белки, г</span></div>
+            <div class="macro f"><b>${m.fat}</b><span>жиры, г</span></div>
+            <div class="macro c"><b>${m.carbs}</b><span>углев., г</span></div>
+          </div>
+          <ul class="ingredients">
+            ${m.ingredients.map(([n, q]) => `<li><span>${esc(n)}</span><span class="q">${esc(q)}</span></li>`).join("")}
+          </ul>
+          <button class="btn recipe-btn" type="button" aria-expanded="false" aria-controls="${rid}">
+            <span>📖 Рецепт · ${cookLabel(m.cookTime)}</span><span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="recipe" id="${rid}" hidden>
+            <div class="ct">⏱ ${cookLabel(m.cookTime)}${m.note ? " · " + esc(m.note) : ""}</div>
+            <ol>${m.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
+          </div>
+        </article>`;
+      }).join("")}
+    </div>
+    <div class="card totals">
+      <h3>Итог дня</h3>
+      <div class="totals-grid">
+        ${bar("k", "Калории", t.kcal, "ккал", "kcal")}
+        ${bar("p", "Белки", t.protein, "г", "protein")}
+        ${bar("f", "Жиры", t.fat, "г", "fat")}
+        ${bar("c", "Углеводы", t.carbs, "г", "carbs")}
+      </div>
+    </div>`;
+}
+
+panelEl.addEventListener("click", e => {
+  const rb = e.target.closest(".recipe-btn");
+  if (rb) {
+    const open = rb.getAttribute("aria-expanded") === "true";
+    rb.setAttribute("aria-expanded", String(!open));
+    document.getElementById(rb.getAttribute("aria-controls")).hidden = open;
+  }
+  if (e.target.closest("#print-day")) printMode("print-day");
+});
+
+/* ---------- Week summary ---------- */
+function renderWeek() {
+  const rows = plan.days.map(d => ({ d, t: sumDay(d) }));
+  const avg = k => Math.round(rows.reduce((s, r) => s + r.t[k], 0) / rows.length);
+  document.getElementById("week-summary").innerHTML = `
+    <table class="week-table">
+      <thead><tr><th>День</th><th>Ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead>
+      <tbody>${rows.map(({ d, t }, i) => `<tr class="${i === activeIndex ? "current" : ""}">
+        <td>${d.short}${isTraining(d.id) ? " 🏋️" : ""}</td><td>${fmt(t.kcal)}</td><td class="p">${t.protein}</td><td>${t.fat}</td><td>${t.carbs}</td></tr>`).join("")}
+      </tbody>
+      <tfoot><tr><td>Среднее</td><td>≈ ${fmt(avg("kcal"))}</td><td class="p">≈ ${avg("protein")}</td><td>≈ ${avg("fat")}</td><td>≈ ${avg("carbs")}</td></tr></tfoot>
+    </table>`;
+}
+
+/* ---------- Shopping ---------- */
+function loadChecked() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveChecked(state) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* хранилище недоступно */ }
+}
+let checked = loadChecked();
+const shopGrid = document.getElementById("shop-grid");
+const totalItems = plan.shoppingList.reduce((s, c) => s + c.items.length, 0);
+
+function renderShop() {
+  shopGrid.innerHTML = plan.shoppingList.map(c => `
+    <div class="card shop-cat">
+      <h3><span aria-hidden="true">${c.icon}</span>${esc(c.category)}</h3>
+      <ul>${c.items.map(([id, name, qty]) => `<li><label>
+        <input type="checkbox" data-id="${id}" ${checked[id] ? "checked" : ""}>
+        <span class="n">${esc(name)}</span><span class="qty">${esc(qty)}</span>
+      </label></li>`).join("")}</ul>
+    </div>`).join("");
+  updateProgress();
+}
+function updateProgress() {
+  const done = Object.values(checked).filter(Boolean).length;
+  document.getElementById("shop-progress").textContent = `Куплено ${done} из ${totalItems}`;
+}
+shopGrid.addEventListener("change", e => {
+  const id = e.target.dataset.id;
+  if (!id) return;
+  if (e.target.checked) checked[id] = true; else delete checked[id];
+  saveChecked(checked);
+  updateProgress();
+});
+document.getElementById("reset-shop").addEventListener("click", () => {
+  checked = {};
+  saveChecked(checked);
+  renderShop();
+});
+document.getElementById("print-shop").addEventListener("click", () => printMode("print-shop"));
+
+/* ---------- Print ---------- */
+function printMode(cls) {
+  document.body.classList.add(cls);
+  const clear = () => { document.body.classList.remove(cls); window.removeEventListener("afterprint", clear); };
+  window.addEventListener("afterprint", clear);
+  window.print();
+  setTimeout(clear, 1000);
+}
+
+/* ---------- Principles ---------- */
+document.getElementById("principles-list").innerHTML = plan.principles.map(([ic, h, p]) => `
+  <div class="card principle"><span class="ic" aria-hidden="true">${ic}</span><div><h3>${h}</h3><p>${p}</p></div></div>`).join("");
+
+renderTabs();
+renderDay();
+renderWeek();
+renderShop();
+</script>
+</body>
+</html>
